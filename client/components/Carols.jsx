@@ -1,9 +1,17 @@
 import React, { Component } from 'react'
+import Sound from 'react-sound'
+
 
 
 class Carols extends Component {
     constructor(props) {
         super(props)
+
+        this.state = {
+            playing: true,
+            url: '/sounds/ho-ho-ho.mp3',
+            nextAudio: '/mp3/rudolf.mp3'
+        }
 
         this.handleTest = this.handleTest.bind(this)
     }
@@ -13,29 +21,59 @@ class Carols extends Component {
     }
 
     handleTest(e) {
+
         // console.log(e)
         if (e.keyCode == 65) {
-            console.log("a has been pressed")
-        } else {
-            console.log("nope")
+            this.setState({
+                url: '/mp3/ho-ho-ho.mp3'
+            })
+
+        } else if (e.keyCode == 66) {
+            this.setState({
+                url: '/mp3/jingle-bells.mp3'
+            })
+        } else if (e.keyCode == 67) {
+            this.setState({
+                url: '/mp3/rudolf.mp3'
+            })
+        } else if (e.keyCode == 68) {
+            this.setState({
+                url: '/mp3/grandma-got-run-over.mp3'
+            })
+        } else if (e.keyCode == 69) {
+            this.setState({
+                url: '/mp3/sleigh-bells.mp3'
+            })
         }
     }
 
-    playAudio() {
-        const audioEl = document.getElementsByClassName("audio-element")[0]
-        audioEl.play()
+    playAudio = () => {
+        // const audioEl = document.getElementsByClassName("audio-element")[0]
+        // console.log(audioEl)
+        // audioEl.play()
+        this.setState({
+            playing: !this.state.playing
+        })
     }
 
     render() {
         return (
             <div >
                 <div>
-                    <button onClick={this.playAudio}>
+                    {/* <button onClick={this.playAudio}>
                         <span>Play Audio</span>
-                    </button>
-                    <audio className="audio-element">
-                        <source src="/sounds/ho-ho-ho.mp3"></source>
-                    </audio>
+                    </button> */}
+                    {/* <audio className="audio-element">
+                        <source src={this.state.currentAudio}></source>
+                    </audio> */}
+                    <Sound
+                        url={this.state.url}
+                        playStatus={this.state.playing ? Sound.status.PLAYING : Sound.status.STOPPED}
+                        playFromPosition={300 /* in milliseconds */}
+                        onLoading={this.handleSongLoading}
+                        onPlaying={this.handleSongPlaying}
+                        onFinishedPlaying={this.handleSongFinishedPlaying}
+                    />
                 </div>
             </div>
         )
