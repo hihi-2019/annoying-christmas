@@ -1,8 +1,10 @@
 import React from 'react'
+import ChristmasTree from './ChristmasTree'
 
 const App = () => {
   return (
-    <h1>React development has begun!</h1>
+
+    <ChristmasTree />
   )
 }
 
