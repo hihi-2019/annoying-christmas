@@ -5,6 +5,10 @@ class Carols extends Component {
     constructor(props) {
         super(props)
 
+        this.state = {
+            currentAudio: '/sounds/ho-ho-ho.mp3'
+        }
+
         this.handleTest = this.handleTest.bind(this)
     }
 
@@ -13,9 +17,15 @@ class Carols extends Component {
     }
 
     handleTest(e) {
+
         // console.log(e)
         if (e.keyCode == 65) {
-            console.log("a has been pressed")
+            this.setState({
+                currentAudio: '/mp3/rudolf.mp3'
+            }, () => {
+                this.playAudio()
+            })
+
         } else {
             console.log("nope")
         }
@@ -23,6 +33,7 @@ class Carols extends Component {
 
     playAudio() {
         const audioEl = document.getElementsByClassName("audio-element")[0]
+        console.log(audioEl)
         audioEl.play()
     }
 
@@ -34,7 +45,7 @@ class Carols extends Component {
                         <span>Play Audio</span>
                     </button>
                     <audio className="audio-element">
-                        <source src="/sounds/ho-ho-ho.mp3"></source>
+                        <source src={this.state.currentAudio}></source>
                     </audio>
                 </div>
             </div>
