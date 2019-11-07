@@ -4,22 +4,19 @@ class Snow extends React.Component{
   constructor(props){
     super(props)
 
-    this.state = {
-      snowArr: [{
-        sx: props.width / 2,
-        sy: props.height / 3,
-        r: 5,
-        color: 'yellow'
-      }]
-    }
   }
+
+
       render(){
+        console.log(this.props.func)
         return(
-          <svg width={this.props.width} height={this.props.height}>
-            {this.state.snowArr.map((snow, i) => {
-              <circle key={i} fill={snow.color} cx={snow.sx} cy={snow.sy} r={snow.r}></circle>
+          <>
+            {this.props.snowArr.map((snow, i) => {
+              return (
+                <circle key={i} fill={snow.color} cx={snow.sx} cy={snow.sy} r={snow.r} />
+              )
             })}
-          </svg>
+          </>
         )
       }
 }
