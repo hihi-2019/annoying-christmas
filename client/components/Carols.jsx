@@ -32,6 +32,18 @@ class Carols extends Component {
             this.setState({
                 url: '/mp3/jingle-bells.mp3'
             })
+        } else if (e.keyCode == 67) {
+            this.setState({
+                url: '/mp3/rudolf.mp3'
+            })
+        } else if (e.keyCode == 68) {
+            this.setState({
+                url: '/mp3/grandma-got-run-over.mp3'
+            })
+        } else if (e.keyCode == 69) {
+            this.setState({
+                url: '/mp3/sleigh-bells.mp3'
+            })
         }
     }
 
@@ -48,9 +60,9 @@ class Carols extends Component {
         return (
             <div >
                 <div>
-                    <button onClick={this.playAudio}>
+                    {/* <button onClick={this.playAudio}>
                         <span>Play Audio</span>
-                    </button>
+                    </button> */}
                     {/* <audio className="audio-element">
                         <source src={this.state.currentAudio}></source>
                     </audio> */}
