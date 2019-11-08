@@ -44,6 +44,99 @@ class Carols extends Component {
             this.setState({
                 url: '/mp3/sleigh-bells.mp3'
             })
+        } else if (e.keyCode == 70) {
+            this.setState({
+                url: '/mp3/baby-its-cold.mp3'
+            })
+        } else if (e.keyCode == 71) {
+            this.setState({
+                url: '/mp3/mariah-carey.mp3'
+            })
+        } else if (e.keyCode == 72) {
+            this.setState({
+                url: '/mp3/melody.mp3'
+            })
+        } else if (e.keyCode == 73) {
+            this.setState({
+                url: '/mp3/paul.mp3'
+            })
+        } else if (e.keyCode == 74) {
+            this.setState({
+                url: '/mp3/rocking.mp3'
+            })
+        } else if (e.keyCode == 75) {
+            this.setState({
+                url: '/mp3/wham.mp3'
+            })
+        } else if (e.keyCode == 74) {
+            this.setState({
+                url: '/mp3/ho-ho-ho.mp3'
+            })
+
+        } else if (e.keyCode == 75) {
+            this.setState({
+                url: '/mp3/jingle-bells.mp3'
+            })
+        } else if (e.keyCode == 76) {
+            this.setState({
+                url: '/mp3/rudolf.mp3'
+            })
+        } else if (e.keyCode == 77) {
+            this.setState({
+                url: '/mp3/grandma-got-run-over.mp3'
+            })
+        } else if (e.keyCode == 78) {
+            this.setState({
+                url: '/mp3/sleigh-bells.mp3'
+            })
+        } else if (e.keyCode == 79) {
+            this.setState({
+                url: '/mp3/baby-its-cold.mp3'
+            })
+        } else if (e.keyCode == 80) {
+            this.setState({
+                url: '/mp3/mariah-carey.mp3'
+            })
+        } else if (e.keyCode == 81) {
+            this.setState({
+                url: '/mp3/melody.mp3'
+            })
+        } else if (e.keyCode == 82) {
+            this.setState({
+                url: '/mp3/paul.mp3'
+            })
+        } else if (e.keyCode == 83) {
+            this.setState({
+                url: '/mp3/rocking.mp3'
+            })
+        } else if (e.keyCode == 84) {
+            this.setState({
+                url: '/mp3/wham.mp3'
+            })
+        } else if (e.keyCode == 85) {
+            this.setState({
+                url: '/mp3/melody.mp3'
+            })
+        } else if (e.keyCode == 86) {
+            this.setState({
+                url: '/mp3/paul.mp3'
+            })
+        } else if (e.keyCode == 87) {
+            this.setState({
+                url: '/mp3/rocking.mp3'
+            })
+        } else if (e.keyCode == 88) {
+            this.setState({
+                url: '/mp3/wham.mp3'
+            })
+        } else if (e.keyCode == 89) {
+            this.setState({
+                url: '/mp3/rocking.mp3'
+            })
+        } else if (e.keyCode == 90) {
+            this.setState({
+                url: '/mp3/wham.mp3'
+            })
         }
     }
 
