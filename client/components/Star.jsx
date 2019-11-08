@@ -10,17 +10,45 @@ class Star extends React.Component {
             starArr: [{
                 cx: props.width / 2,
                 cy: props.height / 2,
-                r: 4,
+                r: 6,
                 color: 'red'
                 //make it transparent
             }],
             snowArr: [{
                 sx: props.width / 2,
                 sy: props.height / 3,
-                r: 3,
+                r: 2,
                 color: 'yellow'
               }]
         }
+    }
+
+    componentDidMount() {
+        setInterval(() => {
+            this.moveSnow()
+            this.changeColors()
+        }, 300)
+    }
+
+    changeColors() {
+        this.setState({
+            starArr: this.state.starArr.map(item => {
+                item.color = this.randomHexColor()
+                return item
+        })
+    })
+    }
+
+    moveSnow() {
+        console.log('moving the snow')
+
+        this.setState({
+            snowArr: this.state.snowArr.map(item => {
+                item.sy = item.sy + (Math.random() * 20)
+                item.sx = item.sx + (Math.random() * 5)
+                return item
+            }),
+         })
     }
 
     
@@ -28,7 +56,6 @@ class Star extends React.Component {
         `#${Math.floor(Math.random() * 0x1000000).toString(16).padStart(6, 0)}`
 
     handleClick = (event) => {
-        console.log(event.pageX)
         let x = event.pageX
         let y = event.pageY - 56
 
@@ -47,7 +74,6 @@ class Star extends React.Component {
 
     handleMove = (event) => {
         if(event.pageY < 120){
-            console.log(event.pageY)
             let x = event.pageX
         let y = event.pageY - 56
 
@@ -65,16 +91,11 @@ class Star extends React.Component {
         }
     }
 
-    moveSnow = () => {
-        console.log(snowArr)
-        this.state.snowArr.map((snow, i) => {
-            return snow
-        })
-        console.log(snowArr)
-            
-    }
+
+    
 
     render(){
+        console.log(this.state.snowArr)
         //must map over circles
         return(
             <svg width={this.props.width} height={this.props.height} onClick={this.handleClick} onMouseMove={this.handleMove}>
@@ -83,7 +104,7 @@ class Star extends React.Component {
                         <circle key = {i} cx={star.cx} cy={star.cy} r={star.r} fill = {star.color}  />
                     ) 
                 })}
-                <Snow width={this.props.width} height={this.props.height} snowArr={this.state.snowArr} func={this.moveSnow}/>
+                <Snow width={this.props.width} height={this.props.height} snowArr={this.state.snowArr} func={this.move}/>
             </svg>
         )
     }
