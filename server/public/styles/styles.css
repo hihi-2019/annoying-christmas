@@ -5,3 +5,28 @@
     background-image: url('/images/christmasTree.jpg');
     background-size: contain;
 }
+
+
+img {
+margin-top: auto;
+    position: absolute;
+    top: 400px;
+    left: 300px;
+    margin: 0 0 0 0;
+    z-index: 2;
+    width: 20%;
+    border-radius: 50px;
+}
+
+ img:hover {
+   transition: 0.45s;
+ -webkit-transition: 0.45s;
+ -moz-transition: 0.45s;
+ -ms-transition: 0.45s;
+ -o-transition: 0.45s;
+ -webkit-transform: rotate(360deg);
+ -moz-transform: rotate(360deg);
+ -o-transform: rotate(360deg);
+ -ms-transform: rotate(360deg);
+ transform: rotate(360deg);
+ }
