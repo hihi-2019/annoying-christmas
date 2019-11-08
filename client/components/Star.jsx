@@ -10,15 +10,17 @@ class Star extends React.Component {
             starArr: [{
                 cx: props.width / 2,
                 cy: props.height / 2,
-                r: 6,
-                color: 'red'
+                r: 10,
+                color: 'red',
+                opacity: 0
                 //make it transparent
             }],
             snowArr: [{
                 sx: props.width / 2,
                 sy: props.height / 3,
-                r: 2,
-                color: 'yellow'
+                r: 2.5,
+                color: 'yellow',
+                opacity: 0
               }]
         }
     }
@@ -27,7 +29,7 @@ class Star extends React.Component {
         setInterval(() => {
             this.moveSnow()
             this.changeColors()
-        }, 300)
+        }, 100)
     }
 
     changeColors() {
@@ -43,12 +45,15 @@ class Star extends React.Component {
         console.log('moving the snow')
 
         this.setState({
-            snowArr: this.state.snowArr.map(item => {
-                item.sy = item.sy + (Math.random() * 20)
-                item.sx = item.sx + (Math.random() * 5)
-                return item
-            }),
-         })
+            snowArr: this.state.snowArr.map(snow => {
+                snow.sy = snow.sy + (Math.random() * 20)
+                snow.sx = snow.sx + (Math.random() * 10)
+                return snow
+            }).filter(snow => {
+                return snow.sy < this.props.height
+            })
+        })
+        console.log(this.state.snowArr)
     }
 
     
@@ -73,7 +78,7 @@ class Star extends React.Component {
     }
 
     handleMove = (event) => {
-        if(event.pageY < 120){
+        if(event.pageY < 180){
             let x = event.pageX
         let y = event.pageY - 56
 
@@ -85,7 +90,7 @@ class Star extends React.Component {
                sx: x,
                sy: y,
                r: this.state.snowArr[0].r,
-               color: 'gold'
+               color: 'white'
            }],
         })
         }
@@ -95,13 +100,12 @@ class Star extends React.Component {
     
 
     render(){
-        console.log(this.state.snowArr)
         //must map over circles
         return(
             <svg width={this.props.width} height={this.props.height} onClick={this.handleClick} onMouseMove={this.handleMove}>
                 {this.state.starArr.map((star, i) => {
                     return (
-                        <circle key = {i} cx={star.cx} cy={star.cy} r={star.r} fill = {star.color}  />
+                        <circle key = {i} cx={star.cx} cy={star.cy} r={star.r} fill = {star.color} opacity = {star.opacity}  />
                     ) 
                 })}
                 <Snow width={this.props.width} height={this.props.height} snowArr={this.state.snowArr} func={this.move}/>

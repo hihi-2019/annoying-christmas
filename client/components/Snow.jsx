@@ -10,7 +10,7 @@ class Snow extends React.Component{
           <>
             {this.props.snowArr.map((snow, i) => {
               return (
-                <circle key={i} fill={snow.color} cx={snow.sx} cy={snow.sy} r={snow.r} />
+                <circle key={i} fill={snow.color} cx={snow.sx} cy={snow.sy} r={snow.r} opacity={snow.opacity} />
               )
             })}
           </>
